@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* FRESH THEME: warm orange + charcoal + cream */
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #fffaf5;
+  color: #292524;
+  -webkit-font-smoothing: antialiased;
+}
+.dark body { background: #171412; }
+
+/* Warm, clearly visible scrollbar */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: #f5eee7; }
+::-webkit-scrollbar-thumb { background: #f97316; border-radius: 999px; border: 2px solid #f5eee7; }
+::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+
+/* Dashboard surfaces */
+.dashboard-surface {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Extra polish */
+button, a, input, select, textarea { transition: all .2s ease; }
+button:hover { transform: translateY(-1px); }
+
+/* Warm selection instead of the old purple accent */
+::selection { background: #fed7aa; color: #7c2d12; }
+
+/* ==========================================================
+   FRESH UI REDESIGN — editorial orange / charcoal dashboard
+   This intentionally changes the layout feel, not just colors.
+   ========================================================== */
+:root {
+  --ui-orange: #f97316;
+  --ui-orange-dark: #c2410c;
+  --ui-cream: #fff7ed;
+  --ui-ink: #18181b;
+  --ui-line: #e7e5e4;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 8%, rgba(249,115,22,.09), transparent 24rem),
+    radial-gradient(circle at 92% 15%, rgba(251,191,36,.08), transparent 22rem),
+    #fafaf9 !important;
+}
+.dark body {
+  background:
+    radial-gradient(circle at 8% 8%, rgba(249,115,22,.10), transparent 24rem),
+    #11100f !important;
+}
+
+/* Sidebar: turn the old solid block into a clean floating navigation rail */
+#app-sidebar {
+  margin: 12px 0 12px 12px !important;
+  height: calc(100vh - 24px) !important;
+  top: 0 !important;
+  bottom: auto !important;
+  border: 1px solid rgba(231,229,228,.95) !important;
+  border-radius: 24px !important;
+  background: rgba(255,255,255,.92) !important;
+  color: #57534e !important;
+  box-shadow: 0 20px 55px rgba(28,25,23,.10) !important;
+  overflow: hidden !important;
+  backdrop-filter: blur(18px);
+}
+.dark #app-sidebar {
+  background: rgba(28,25,23,.94) !important;
+  border-color: #3f3f46 !important;
+  color: #d6d3d1 !important;
+}
+#app-sidebar .border-stone-800 { border-color: #eee7e0 !important; }
+.dark #app-sidebar .border-stone-800 { border-color: #3f3f46 !important; }
+#app-sidebar .bg-stone-900 { background: transparent !important; }
+#app-sidebar .bg-stone-800\/50 { background: #fff7ed !important; }
+.dark #app-sidebar .bg-stone-800\/50 { background: #29211c !important; }
+#app-sidebar .text-white { color: #18181b !important; }
+.dark #app-sidebar .text-white { color: #fafafa !important; }
+#app-sidebar .text-stone-400 { color: #78716c !important; }
+.dark #app-sidebar .text-stone-400 { color: #a8a29e !important; }
+#app-sidebar button:not(#sidebar-toggle-btn) {
+  border-radius: 14px !important;
+  margin-bottom: 5px;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+#app-sidebar button:not(#sidebar-toggle-btn):hover {
+  background: #fff1e8 !important;
+  color: #9a3412 !important;
+  transform: translateX(3px);
+}
+#app-sidebar button.bg-orange-600 {
+  background: linear-gradient(135deg,#f97316,#ea580c) !important;
+  box-shadow: 0 10px 24px rgba(234,88,12,.24) !important;
+}
+#sidebar-toggle-btn {
+  border-radius: 10px !important;
+  background: #fff7ed !important;
+  color: #ea580c !important;
+}
+
+/* Header: floating toolbar rather than a flat bar */
+#app-header {
+  top: 12px !important;
+  height: 64px !important;
+  right: 12px !important;
+  border: 1px solid rgba(231,229,228,.9) !important;
+  border-radius: 20px !important;
+  background: rgba(255,255,255,.88) !important;
+  box-shadow: 0 14px 38px rgba(28,25,23,.08) !important;
+  backdrop-filter: blur(18px);
+}
+.dark #app-header {
+  background: rgba(28,25,23,.88) !important;
+  border-color: #3f3f46 !important;
+}
+#global-search-input {
+  min-height: 42px !important;
+  border-radius: 14px !important;
+  background: #f5f5f4 !important;
+  border-color: #e7e5e4 !important;
+}
+.dark #global-search-input { background: #1c1917 !important; border-color: #44403c !important; }
+#quick-add-product-btn {
+  min-height: 40px !important;
+  border-radius: 12px !important;
+  background: #18181b !important;
+  box-shadow: 0 8px 18px rgba(24,24,27,.16) !important;
+}
+#quick-add-product-btn:hover { background: #ea580c !important; }
+
+/* Main canvas spacing changes the composition */
+#main-content-viewport { padding-top: 92px !important; }
+#main-content-viewport > div { max-width: 1500px !important; padding: 22px !important; }
+
+/* Every main panel becomes a soft, elevated card */
+#dashboard-page .bg-white,
+#dashboard-page .dark\:bg-stone-900,
+#dashboard-page .border-stone-200,
+#dashboard-page .border-stone-800 {
+  border-radius: 22px !important;
+}
+#dashboard-page > div:first-child {
+  background: linear-gradient(120deg,#18181b 0%,#292524 58%,#431407 100%) !important;
+  color: white !important;
+  border: 0 !important;
+  box-shadow: 0 22px 50px rgba(28,25,23,.16) !important;
+  position: relative;
+  overflow: hidden;
+}
+#dashboard-page > div:first-child::after {
+  content: '';
+  position: absolute;
+  width: 230px; height: 230px;
+  right: -55px; top: -90px;
+  border-radius: 50%;
+  background: rgba(249,115,22,.22);
+}
+#dashboard-page > div:first-child h1 { color: white !important; position: relative; z-index: 1; }
+#dashboard-page > div:first-child p { color: #d6d3d1 !important; position: relative; z-index: 1; }
+
+/* KPI cards: stronger visual hierarchy */
+#dashboard-page .grid > div {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+#dashboard-page .grid > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(28,25,23,.10);
+  border-color: #fed7aa !important;
+}
+
+/* Chart / content cards */
+#dashboard-page .shadow-xs {
+  box-shadow: 0 12px 34px rgba(28,25,23,.055) !important;
+}
+
+/* Give tabs and controls a more modern segmented-control look */
+#dashboard-page button { border-radius: 10px; }
+
+/* Mobile: keep the floating style without creating horizontal overflow */
+@media (max-width: 1023px) {
+  #app-sidebar {
+    margin: 8px !important;
+    height: calc(100vh - 16px) !important;
+    border-radius: 20px !important;
+  }
+  #app-header { left: 8px !important; right: 8px !important; top: 8px !important; }
+  #main-content-viewport { padding-top: 86px !important; }
+  #main-content-viewport > div { padding: 14px !important; }
+}
